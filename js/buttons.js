@@ -1,41 +1,35 @@
-/*
-const regButton = document.createElement('button');
-regButton.className = 'registration';
-regButton.innerHTML = 'Click me';
-regButton.style.cssText = `
-width: 150px;
-height: 50px;
-border-radius: 6px;
-border: 1px;
-background-color:rgba(127, 255, 212, 0.74);
-font-size: 20px;
-margin-left: 43.333%;
-margin-top: 200px;
-`;
-*/
 
+const modal = document.querySelector('.window');
+const nameData = document.querySelector('.user-data.name');
+const surnameData = document.querySelector('.user-data.surname');
+const nameInput = document.querySelector('input[name="Name"]');
+const surnameInput = document.querySelector('input[name="Surname"]');
+const startContainer = document.querySelector('.start-container');
+const submitButton = document.querySelector('.submit');
+const cancelButton = document.querySelector('.cancel');
+const hachSpans = document.querySelectorAll('.hach');
 
-document.body.append(regButton);
+startContainer.addEventListener('click', function(event) {
+	if (event.target.matches('.start')) {
+	modal.classList.add('active');
+	startContainer.style.display = 'none';
+}
+});
 
-const confirmButton = document.createElement('button');
-confirmButton.className = 'confirm';
-confirmButton.innerHTML = 'Ok'
-confirmButton.style.cssText = `
-width: 150px;
-height: 50px;
-border-radius: 6px;
-border: 1px;
-background-color:rgba(127, 255, 212, 0.74);
-font-size: 20px;
-`;
+hachSpans.forEach(function(span) {
+	span.addEventListener('click', closeModal);
+});
 
-const cancelButton = document.createElement('button');
-cancelButton.className = 'cancel';
-cancelButton.innerHTML = 'Cancel';
-cancelButton.style.cssText = `width: 150px;
-height: 50px;
-border-radius: 6px;
-border: 1px;
-background-color:rgba(127, 255, 212, 0.74);
-font-size: 20px;
-`;
+cancelButton.addEventListener('click', closeModal);
+
+submitButton.addEventListener('click', function(event) {
+	event.preventDefault();
+	nameData.textContent = nameInput.value;
+	surnameData.textContent = surnameInput.value;
+	closeModal();
+});
+
+function closeModal() {
+	modal.classList.remove('active');
+	startContainer.style.display = 'block';
+}

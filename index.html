@@ -8,22 +8,26 @@
 	<title>Document</title>
 </head>
 <body>
-	<div class="container">
-	<p class="name">sdfsffsd</p>
-	<p class="surname">sdfdsfsfs</p>
-	<button class="button" onclick="openModal()">Жмякай</button>
-	<div class="mdlwndw" >
-		<div class="modal-content" >
-			<form>
-				<input class="form-input" type="text" id="firstName" placeholder="Имя" required><br>
-				<input class="form-input" type="text" id="lastName" placeholder="Фамилия" required><br>
-				<button class="button" onclick="submitForm()">Отправить</button>
-				<button class="button" onclick="closeModal()">Отменить</button>
-			</form>
+<div class="wrapper">
+	<div class="window ">
+		<span class="hach"></span>
+		<span class="hach hach2"></span>
+		<form name="modal">
+			<input type="text" name="Name" placeholder="Your name">
+			<input type="text" name="Surname" placeholder="Your Surname">
+		</form>
+		<div class="btn-container">
+		<button type="submit" class="btn submit">Submit</button>
+		<button type="reset" class="btn cancel">Cancel</button>
 		</div>
 	</div>
-	<script src='/js/buttons.js'></script>
-	<script src="/js/script.js"></script>
-	</div>
+	<div class="user-data name"></div>
+	<div class="user-data surname"></div>
+		<div class="start-container">
+	<button type="button" class="btn start">Click Me</button>
+		</div>
+</div>
+<script src="/js/script.js"></script>
+<script src="/js/buttons.js"></script>
 </body>
 </html>
